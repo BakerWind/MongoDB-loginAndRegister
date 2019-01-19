@@ -81,7 +81,7 @@ module.exports = {
     loginFn(req,res){
         res.writeHead(200,{
             'Content-type':'text/html;charset=utf-8',
-        })
+        });
         var rawData = "";
         req.on('data',(chunk)=>{
             rawData += chunk;
@@ -110,7 +110,7 @@ module.exports = {
                         pwd:params.pwd,
                     }).count(function (err,num) {
                         if (err) {
-                            console.log('查询失败')
+                            console.log('查询失败');
                         } else {
                             console.log('查询成功');
                             // 判断查找到的记录条数

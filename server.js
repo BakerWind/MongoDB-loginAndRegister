@@ -2,9 +2,9 @@ const http = require('http');
 const url = require('url');
 const routes = require('./modules/routes.js');
 
-http.createServer((req,res)=>{
+http.createServer((req, res) => {
 
-    if(req.url === '/favicon'){
+    if (req.url === '/favicon') {
         res.end();
         return;
     }
@@ -12,13 +12,13 @@ http.createServer((req,res)=>{
     var pathName = url.parse(req.url).pathname.substr(1);
 
     try {
-        routes[pathName](req,res);
+        routes[pathName](req, res);
         console.log(pathName);
     } catch (error) {
         console.log(error.message);
-        routes.home(req,res);
+        routes.home(req, res);
     }
-    
+
 }).listen(3000);
 
-console.log('服务启动成功')
+console.log('服务启动成功');
